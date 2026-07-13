@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cervical Cancer Severity Classification Using Deep Learning</title>
+  <meta name="description" content="A responsive project website for cervical cancer severity classification using deep learning and Pap smear medical imaging.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen" aria-label="Loading website">
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Go to home section">
+        <span class="brand-mark">CC</span>
+        <span class="brand-text">CerviClass AI</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#dataset">Dataset</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#prediction">Prediction</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-overlay"></div>
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-content reveal">
+        <p class="eyebrow">Medical Imaging + Deep Learning</p>
+        <h1>Cervical Cancer Severity Classification Using Deep Learning</h1>
+        <p class="hero-subtitle">
+          A modern AI-assisted workflow for analyzing Pap smear images and supporting
+          early severity-level screening research.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#prediction">Try Dummy Prediction</a>
+          <a class="btn secondary" href="#methodology">View Workflow</a>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal delay-1" aria-label="AI medical imaging summary">
+        <div class="scan-card">
+          <img src="assets/images/hero-ai-healthcare.svg" alt="Abstract AI healthcare illustration">
+        </div>
+        <div class="mini-stats">
+          <article>
+            <span>5</span>
+            <p>SIPaKMeD Classes</p>
+          </article>
+          <article>
+            <span>4,049</span>
+            <p>Isolated Cells</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">About Project</p>
+        <h2>Why early cervical cancer detection matters</h2>
+        <p>
+          Cervical cancer often develops gradually through detectable cellular changes.
+          Early screening can help identify abnormal cells before the disease becomes
+          advanced, improving treatment planning and patient outcomes.
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card reveal">
+          <span class="icon-bubble">01</span>
+          <h3>Cervical Cancer Screening</h3>
+          <p>
+            Pap smear screening examines cervical cell samples to identify normal,
+            inflammatory, pre-cancerous, or malignant patterns under a microscope.
+          </p>
+        </article>
+        <article class="info-card reveal delay-1">
+          <span class="icon-bubble">02</span>
+          <h3>Deep Learning in Imaging</h3>
+          <p>
+            Convolutional neural networks learn visual features directly from images,
+            making them useful for research in medical image classification and triage.
+          </p>
+        </article>
+        <article class="info-card reveal delay-2">
+          <span class="icon-bubble">03</span>
+          <h3>Research Support Tool</h3>
+          <p>
+            This website demonstrates a project interface for uploading an image,
+            previewing a result, and communicating model workflow and performance.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dataset" id="dataset">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Dataset Section</p>
+        <h2>SIPaKMeD Pap smear dataset overview</h2>
+        <p>
+          This project is designed around the SIPaKMeD cervical cytology dataset,
+          a public Pap smear image dataset containing isolated cells and original
+          cell-cluster images labeled by expert cytopathologists.
+        </p>
+      </div>
+
+      <div class="dataset-summary reveal">
+        <div>
+          <strong>Dataset</strong>
+          <span>SIPaKMeD Pap smear database</span>
+        </div>
+        <div>
+          <strong>Image Count</strong>
+          <span>966 cluster images, 4,049 isolated cells</span>
+        </div>
+        <div>
+          <strong>Dataset Size</strong>
+          <span>Nearly 6 GB archive for full dataset use</span>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <article class="sample-card reveal">
+          <img src="assets/images/sample-normal.svg" alt="Illustrative normal Pap smear sample">
+          <div>
+            <h3>Superficial-Intermediate</h3>
+            <p>Normal mature squamous epithelial cells. SIPaKMeD includes 831 isolated cells.</p>
+          </div>
+        </article>
+        <article class="sample-card reveal delay-1">
+          <img src="assets/images/sample-parabasal.svg" alt="Illustrative parabasal Pap smear sample">
+          <div>
+            <h3>Parabasal</h3>
+            <p>Normal immature squamous cells. SIPaKMeD includes 787 isolated cells.</p>
+          </div>
+        </article>
+        <article class="sample-card reveal delay-2">
+          <img src="assets/images/sample-mild.svg" alt="Illustrative koilocytotic Pap smear sample">
+          <div>
+            <h3>Koilocytotic</h3>
+            <p>Abnormal HPV-associated cells. SIPaKMeD includes 825 isolated cells.</p>
+          </div>
+        </article>
+        <article class="sample-card reveal delay-3">
+          <img src="assets/images/sample-severe.svg" alt="Illustrative dyskeratotic Pap smear sample">
+          <div>
+            <h3>Dyskeratotic</h3>
+            <p>Abnormal keratinized cells. SIPaKMeD includes 813 isolated cells.</p>
+          </div>
+        </article>
+        <article class="sample-card reveal delay-3">
+          <img src="assets/images/sample-moderate.svg" alt="Illustrative metaplastic Pap smear sample">
+          <div>
+            <h3>Metaplastic</h3>
+            <p>Benign transformation-zone cells. SIPaKMeD includes 793 isolated cells.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section methodology" id="methodology">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Methodology</p>
+        <h2>Deep learning workflow</h2>
+        <p>
+          The model pipeline transforms a raw Pap smear image into a severity prediction
+          using preprocessing, feature learning, and classification layers.
+        </p>
+      </div>
+
+      <div class="workflow">
+        <article class="flow-step reveal">
+          <span class="flow-icon">I</span>
+          <h3>Image Preprocessing</h3>
+          <p>Resize, remove noise, enhance contrast, and normalize pixels.</p>
+        </article>
+        <article class="flow-step reveal delay-1">
+          <span class="flow-icon">F</span>
+          <h3>Feature Extraction</h3>
+          <p>Detect nuclei shape, texture, color, and local abnormal patterns.</p>
+        </article>
+        <article class="flow-step reveal delay-2">
+          <span class="flow-icon">CNN</span>
+          <h3>CNN Model</h3>
+          <p>Learn hierarchical visual features through convolutional layers.</p>
+        </article>
+        <article class="flow-step reveal delay-3">
+          <span class="flow-icon">C</span>
+          <h3>Classification</h3>
+          <p>Predict one of the five SIPaKMeD cervical cell categories.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section performance" id="performance">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Model Performance</p>
+        <h2>Evaluation metrics dashboard</h2>
+        <p>
+          The values below are demonstration scores for UI presentation. Replace them
+          with actual validation results after model training.
+        </p>
+      </div>
+
+      <div class="performance-layout">
+        <div class="metrics-card reveal">
+          <div class="metric">
+            <div class="metric-label">
+            <span>Accuracy</span>
+              <strong>94%</strong>
+            </div>
+            <div class="progress-bar"><span style="width: 94%"></span></div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">
+              <span>Precision</span>
+              <strong>93%</strong>
+            </div>
+            <div class="progress-bar"><span style="width: 93%"></span></div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">
+              <span>Recall</span>
+              <strong>92%</strong>
+            </div>
+            <div class="progress-bar"><span style="width: 92%"></span></div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">
+              <span>F1-score</span>
+              <strong>92%</strong>
+            </div>
+            <div class="progress-bar"><span style="width: 92%"></span></div>
+          </div>
+        </div>
+
+        <div class="matrix-card reveal delay-1">
+          <h3>Confusion Matrix</h3>
+          <div class="confusion-matrix" aria-label="Confusion matrix placeholder">
+            <span></span><strong>SI</strong><strong>Para</strong><strong>Koilo</strong><strong>Dysk</strong><strong>Meta</strong>
+            <strong>SI</strong><span>77</span><span>2</span><span>1</span><span>0</span><span>1</span>
+            <strong>Para</strong><span>3</span><span>74</span><span>0</span><span>1</span><span>3</span>
+            <strong>Koilo</strong><span>1</span><span>1</span><span>76</span><span>3</span><span>2</span>
+            <strong>Dysk</strong><span>0</span><span>1</span><span>4</span><span>75</span><span>1</span>
+            <strong>Meta</strong><span>2</span><span>4</span><span>1</span><span>0</span><span>72</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prediction" id="prediction">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Upload & Prediction</p>
+        <h2>Try a dummy image prediction</h2>
+        <p>
+          Upload a sample cervical cell image to preview the SIPaKMeD-style interface.
+          The JavaScript prediction is randomly generated and is not a medical diagnosis.
+        </p>
+      </div>
+
+      <div class="prediction-layout">
+        <form class="upload-card reveal" id="predictionForm">
+          <label class="upload-zone" for="imageUpload" id="uploadZone">
+            <input type="file" id="imageUpload" accept="image/*">
+            <span class="upload-icon">+</span>
+            <strong>Upload Pap smear image</strong>
+            <small>PNG, JPG, JPEG, or BMP-style dataset images</small>
+          </label>
+
+          <div class="preview-wrap" id="previewWrap" hidden>
+            <img id="imagePreview" src="" alt="Uploaded preview">
+          </div>
+
+          <button class="btn primary full" type="submit" id="predictButton">Predict</button>
+        </form>
+
+        <aside class="result-card reveal delay-1" id="resultCard">
+          <span class="result-status">Awaiting image</span>
+          <h3 id="predictionLabel">No prediction yet</h3>
+          <p id="predictionText">
+            Upload an image and click Predict to display a dummy severity class and
+            confidence score.
+          </p>
+          <div class="confidence-meter">
+            <div id="confidenceFill"></div>
+          </div>
+          <strong id="confidenceValue">0% confidence</strong>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section team" id="team">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Team Section</p>
+        <h2>Project contributors</h2>
+        <p>Meet the developers behind the cervical cancer severity classification project.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <img src="assets/images/team-placeholder-1.svg" alt="Team member photo placeholder">
+          <h3>Sahana M Sultanpur</h3>
+          <p>Developer</p>
+          <a class="team-email" href="mailto:sultanpurms05@gmail.com">sultanpurms05@gmail.com</a>
+        </article>
+        <article class="team-card reveal delay-1">
+          <img src="assets/images/team-placeholder-2.svg" alt="Team member photo placeholder">
+          <h3>Sahana A Gobbur</h3>
+          <p>Developer</p>
+          <a class="team-email" href="mailto:sahanagobbur260@gmail.com">sahanagobbur260@gmail.com</a>
+        </article>
+        <article class="team-card reveal delay-2">
+          <img src="assets/images/team-placeholder-3.svg" alt="Team member photo placeholder">
+          <h3>Anisha R Jartarghar</h3>
+          <p>Developer</p>
+          <a class="team-email" href="mailto:anishajartarghar29@gmail.com">anishajartarghar29@gmail.com</a>
+        </article>
+        <article class="team-card reveal delay-3">
+          <img src="assets/images/team-placeholder-4.svg" alt="Team member photo placeholder">
+          <h3>Sunidhi G. Patil</h3>
+          <p>Developer</p>
+          <a class="team-email" href="mailto:sunidhipatil357@gmail.com">sunidhipatil357@gmail.com</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-layout">
+        <div class="section-heading left reveal">
+          <p class="eyebrow">Contact Section</p>
+          <h2>Get in touch</h2>
+          <p>
+            Use this form as a frontend demo for academic inquiries, project feedback,
+            or collaboration requests.
+          </p>
+          <div class="developer-contact-list" aria-label="Developer email contacts">
+            <article>
+              <span>Sahana M Sultanpur</span>
+              <a href="mailto:sultanpurms05@gmail.com">sultanpurms05@gmail.com</a>
+            </article>
+            <article>
+              <span>Sahana A Gobbur</span>
+              <a href="mailto:sahanagobbur260@gmail.com">sahanagobbur260@gmail.com</a>
+            </article>
+            <article>
+              <span>Anisha R Jartarghar</span>
+              <a href="mailto:anishajartarghar29@gmail.com">anishajartarghar29@gmail.com</a>
+            </article>
+            <article>
+              <span>Sunidhi G. Patil</span>
+              <a href="mailto:sunidhipatil357@gmail.com">sunidhipatil357@gmail.com</a>
+            </article>
+          </div>
+        </div>
+
+        <form class="contact-form reveal delay-1" id="contactForm">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="your.email@example.com" required>
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="Write your message" required></textarea>
+          </label>
+          <button class="btn primary full" type="submit">Send Message</button>
+          <p class="form-note" id="formNote" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <strong>CerviClass AI</strong>
+      <p>Academic project interface for cervical cancer severity classification.</p>
+    </div>
+    <div class="social-links" aria-label="Social media links">
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="GitHub">gh</a>
+      <a href="#" aria-label="X">x</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
